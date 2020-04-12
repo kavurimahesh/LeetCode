@@ -1,0 +1,38 @@
+"
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/submissions/
+Solution1: O(n^2) as we we iterate through the list O(n) and del/pop has a complexity of O(n) where n is index of element.
+Runtime: 96 ms, faster than 14.06% of Python online submissions 
+Memory Usage: 14.6 MB, less than 6.25% of Python online submissions
+Solution2: O(n) as we iterate and copy when element is not equal.
+Got the hint from question "It doesn't matter what you leave beyond the returned length."
+Runtime: 60 ms, faster than 97.06% of Python online submissions 
+Memory Usage: 14.6 MB, less than 6.25% of Python online submissions 
+"
+class Solution(object):
+    
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        '''
+        #Solution1
+        i=0
+        while i<(len(nums)-1):
+            if nums[i] == nums[i+1]:
+                del nums[i+1]
+                i = i-1
+            i = i+1
+            
+        return(len(nums))            
+        '''
+        #Solution2
+        i=0
+        for j in range(0,len(nums)):
+            #print(nums,"i:",i,"j:",j)
+            if nums[i]!=nums[j]:
+                nums[i+1]=nums[j]
+                i=i+1
+        
+        return i+1
+        
