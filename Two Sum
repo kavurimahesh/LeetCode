@@ -1,0 +1,14 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        #Empty dictionary to save indexed nums
+        h = {}
+        for i in range(len(nums)-1):            
+            h.update({nums[i] : i})  # Add element to dictionary
+            n = target - nums[i+1]   
+            if n in h:      #Check if target - (next element) is already in dictionary
+                return[i+1, h[n]]
